@@ -23,7 +23,7 @@ RUN \
     make install
 
 RUN \
-    apt-get purge libxerces-c-dev libboost-dev xsdcxx git libboost-program-options-dev && \
+    apt-get purge -y libxerces-c-dev libboost-dev xsdcxx git libboost-program-options-dev && \
     apt-get autoremove -y --purge && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
