@@ -9,7 +9,7 @@ LABEL license "MIT license"
 
 RUN \
     apt-get update && \
-    apt-get install -y --no-install-recommends libxerces-c-dev libboost-dev xsdcxx git libboost-program-options-dev
+    apt-get install -y --no-install-recommends libxerces-c-dev xsdcxx git libboost-program-options-dev
 
 RUN git clone --depth 1 https://github.com/Harvester57/admx-lint.git
 
@@ -23,7 +23,7 @@ RUN \
     make install
 
 RUN \
-    apt-get purge -y libxerces-c-dev libboost-dev xsdcxx git libboost-program-options-dev && \
+    apt-get purge -y xsdcxx git && \
     apt-get autoremove -y --purge && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
