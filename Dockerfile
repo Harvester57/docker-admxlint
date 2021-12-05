@@ -9,7 +9,7 @@ LABEL license "MIT license"
 
 RUN \
     apt-get update && \
-    apt-get install -y --no-install-recommends libxerces-c-dev libboost-dev xsdcxx git
+    apt-get install -y --no-install-recommends libxerces-c-dev libboost-dev xsdcxx git libboost-program-options-dev
 
 RUN git clone --depth 1 https://github.com/Harvester57/admx-lint.git
 
