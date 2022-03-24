@@ -2,9 +2,9 @@
 FROM fstossesds/cmake:latest
 
 LABEL maintainer "florian.stosse@safrangroup.com"
-LABEL lastupdate "05-15-2021"
+LABEL lastupdate "2022-03-24"
 LABEL author "Florian Stosse"
-LABEL description "ADMX linter, built with CMake 3.22.0 base image"
+LABEL description "ADMX linter, built with CMake 3.22.3 base image"
 LABEL license "MIT license"
 
 RUN \
