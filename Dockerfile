@@ -21,13 +21,15 @@ RUN \
     mkdir build && \
     cd build && \
     cmake .. && \
-    make -j3 && \
+    make && \
     sudo make install
+    
+WORKDIR /
 
-ENV SUDO_FORCE_REMOVE=yes
 RUN \
     sudo apt-get purge -y xsdcxx git && \
     sudo apt-get autoremove -y --purge && \
     sudo apt-get clean && \
     sudo rm -rf /var/lib/apt/lists/* && \
+    sudo rm -rf /home/appuser/admx-lint
     sudo deluser appuser sudo
