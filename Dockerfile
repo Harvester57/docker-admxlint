@@ -11,9 +11,11 @@ RUN \
     sudo apt-get update && \
     sudo apt-get install -y --no-install-recommends libxerces-c-dev xsdcxx git libboost-program-options-dev
 
+WORKDIR /home/appuser
+
 RUN git clone --depth 1 https://github.com/Harvester57/admx-lint.git
 
-WORKDIR /admx-lint
+WORKDIR /home/appuser/admx-lint
 
 RUN \
     mkdir build && \
