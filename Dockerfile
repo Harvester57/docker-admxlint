@@ -8,8 +8,8 @@ LABEL description "ADMX linter, built with CMake 3.23.1 base image"
 LABEL license "MIT license"
 
 RUN \
-    apt-get update && \
-    apt-get install -y --no-install-recommends libxerces-c-dev xsdcxx git libboost-program-options-dev
+    sudo apt-get update && \
+    sudo apt-get install -y --no-install-recommends libxerces-c-dev xsdcxx git libboost-program-options-dev
 
 RUN git clone --depth 1 https://github.com/Harvester57/admx-lint.git
 
@@ -20,10 +20,10 @@ RUN \
     cd build && \
     cmake .. && \
     make -j3 && \
-    make install
+    sudo make install
 
 RUN \
-    apt-get purge -y xsdcxx git && \
-    apt-get autoremove -y --purge && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+    sudo apt-get purge -y xsdcxx git && \
+    sudo apt-get autoremove -y --purge && \
+    sudo apt-get clean && \
+    sudo rm -rf /var/lib/apt/lists/*
