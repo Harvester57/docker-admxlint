@@ -24,10 +24,10 @@ RUN \
     make -j3 && \
     sudo make install
 
+ENV SUDO_FORCE_REMOVE=yes
 RUN \
     sudo apt-get purge -y xsdcxx git && \
     sudo apt-get autoremove -y --purge && \
     sudo apt-get clean && \
     sudo rm -rf /var/lib/apt/lists/* && \
-    export SUDO_FORCE_REMOVE=yes && \
     sudo apt-get purge -y sudo
