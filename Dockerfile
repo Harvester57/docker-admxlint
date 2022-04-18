@@ -29,4 +29,5 @@ RUN \
     sudo apt-get autoremove -y --purge && \
     sudo apt-get clean && \
     sudo rm -rf /var/lib/apt/lists/* && \
+    export SUDO_FORCE_REMOVE=yes && \
     sudo apt-get purge -y sudo
