@@ -30,4 +30,4 @@ RUN \
     sudo apt-get autoremove -y --purge && \
     sudo apt-get clean && \
     sudo rm -rf /var/lib/apt/lists/* && \
-    sudo apt-get purge -y sudo
+    sudo deluser appuser sudo
