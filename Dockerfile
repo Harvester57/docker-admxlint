@@ -1,11 +1,11 @@
 # Cf. https://hub.docker.com/r/fstossesds/cmake
 FROM fstossesds/cmake:latest
 
-LABEL maintainer "florian.stosse@gmail.com"
-LABEL lastupdate "2024-02-09"
-LABEL author "Florian Stosse"
-LABEL description "ADMX linter, built with CMake 3.28.3 base image"
-LABEL license "MIT license"
+LABEL maintainer="florian.stosse@gmail.com"
+LABEL lastupdate="2025-04-09"
+LABEL author="Florian Stosse"
+LABEL description="ADMX linter, built with CMake 3.28.3 base image"
+LABEL license="MIT license"
 
 RUN \
     sudo apt-get update && \
