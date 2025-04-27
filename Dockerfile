@@ -1,5 +1,5 @@
 # Cf. https://hub.docker.com/r/fstossesds/cmake
-FROM fstossesds/cmake:latest@sha256:564b18eb01800f61b3e510fc0d987534437bf2f83a67df87a114e91e94baad8c
+FROM fstossesds/cmake:latest@sha256:81405a87a07a44346e7e627b30347b5b5f91ab657a8058a23a6213e0712768da
 
 LABEL maintainer="florian.stosse@gmail.com"
 LABEL lastupdate="2025-04-27"
