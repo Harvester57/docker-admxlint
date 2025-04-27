@@ -7,9 +7,11 @@ LABEL author="Florian Stosse"
 LABEL description="ADMX linter, built with CMake 4.0.1 base image"
 LABEL license="MIT license"
 
+ARG DEBIAN_FRONTEND=noninteractive
+
 RUN \
-    sudo apt-get update && \
-    sudo apt-get install -y --no-install-recommends libxerces-c-dev xsdcxx git libboost-program-options-dev
+    sudo --preserve-env apt-get update && \
+    sudo --preserve-env apt-get install -y --no-install-recommends libxerces-c-dev xsdcxx git libboost-program-options-dev
 
 USER appuser
 WORKDIR /home/appuser
@@ -23,13 +25,13 @@ RUN \
     cd build && \
     cmake .. && \
     make -j$(getconf _NPROCESSORS_ONLN) && \
-    sudo make install
+    sudo --preserve-env make install
     
 WORKDIR /
 
 RUN \
-    sudo apt-get purge -y xsdcxx git && \
-    sudo apt-get autoremove -y --purge && \
-    sudo apt-get clean && \
-    sudo rm -rf /var/lib/apt/lists/* && \
-    sudo rm -rf /home/appuser/admx-lint
+    sudo --preserve-env apt-get purge -y xsdcxx git && \
+    sudo --preserve-env apt-get autoremove -y --purge && \
+    sudo --preserve-env apt-get clean && \
+    sudo --preserve-env rm -rf /var/lib/apt/lists/* && \
+    sudo --preserve-env rm -rf /home/appuser/admx-lint
