@@ -1,16 +1,17 @@
 # Cf. https://hub.docker.com/r/fstossesds/cmake
-FROM fstossesds/cmake:latest
+FROM fstossesds/cmake:latest@sha256:564b18eb01800f61b3e510fc0d987534437bf2f83a67df87a114e91e94baad8c
 
 LABEL maintainer="florian.stosse@gmail.com"
-LABEL lastupdate="2025-04-09"
+LABEL lastupdate="2025-04-27"
 LABEL author="Florian Stosse"
-LABEL description="ADMX linter, built with CMake 3.28.3 base image"
+LABEL description="ADMX linter, built with CMake 4.0.1 base image"
 LABEL license="MIT license"
 
 RUN \
     sudo apt-get update && \
     sudo apt-get install -y --no-install-recommends libxerces-c-dev xsdcxx git libboost-program-options-dev
 
+USER appuser
 WORKDIR /home/appuser
 
 RUN git clone --depth 1 https://github.com/Harvester57/admx-lint.git
