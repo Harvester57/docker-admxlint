@@ -34,6 +34,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN \
     apt-get update && \
     apt-get dist-upgrade -y && \
+    apt-get install -y --no-install-recommends libxerces-c-dev xsdcxx && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
