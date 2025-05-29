@@ -21,7 +21,7 @@ RUN \
     make -j$(getconf _NPROCESSORS_ONLN) && \
     checkinstall --install=no --default
 
-FROM bookworm-slim
+FROM bookworm-slim:latest
 
 LABEL maintainer="florian.stosse@gmail.com"
 LABEL lastupdate="2025-05-29"
@@ -32,13 +32,13 @@ LABEL license="MIT license"
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN \
-  apt-get update && \
-  apt-get dist-upgrade -y && \
-  apt-get clean && \
-  rm -rf /var/lib/apt/lists/*
+    apt-get update && \
+    apt-get dist-upgrade -y && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 COPY --from=builder /home/appuser/admx-lint/build/*.deb /
 
 RUN \
-  dpkg -i /*.deb && \
-  ldconfig
+    dpkg -i /*.deb && \
+    ldconfig
