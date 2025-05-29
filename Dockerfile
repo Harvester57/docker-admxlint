@@ -21,7 +21,7 @@ RUN \
     make -j$(getconf _NPROCESSORS_ONLN) && \
     checkinstall --install=no --default
 
-FROM bookworm-slim:latest
+FROM debian:bookworm-slim@sha256:90522eeb7e5923ee2b871c639059537b30521272f10ca86fdbbbb2b75a8c40cd
 
 LABEL maintainer="florian.stosse@gmail.com"
 LABEL lastupdate="2025-05-29"
