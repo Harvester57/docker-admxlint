@@ -25,7 +25,8 @@ RUN \
     cd build && \
     cmake .. && \
     make -j$(getconf _NPROCESSORS_ONLN) && \
-    sudo --preserve-env make install
+    checkinstall --install=no --default && \
+    cp *.deb / && ls /
     
 WORKDIR /
 
