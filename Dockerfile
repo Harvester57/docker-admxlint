@@ -11,7 +11,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 RUN \
     sudo --preserve-env apt-get update && \
-    sudo --preserve-env apt-get install -y --no-install-recommends libxerces-c-dev xsdcxx git libboost-program-options-dev
+    sudo --preserve-env apt-get install -y --no-install-recommends libxerces-c-dev xsdcxx git libboost-program-options-dev checkinstall
 
 USER appuser
 WORKDIR /home/appuser
