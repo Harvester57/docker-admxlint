@@ -21,7 +21,7 @@ RUN \
     make -j$(getconf _NPROCESSORS_ONLN) && \
     checkinstall --install=no --default
 
-FROM bitnami/minideb:latest@sha256:2f4e2a5783692d00b6d96ee394b1d2b1e031a198fc26b29eb9658a958180c719
+FROM debian:sid-slim@sha256:ce77de9639fc8f48decaa4d94fa5ed1a78e5b7356822f105d18d79d5b2b54772
 
 LABEL maintainer="florian.stosse@gmail.com"
 LABEL lastupdate="2025-05-29"
@@ -34,7 +34,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN \
     apt-get update && \
     apt-get dist-upgrade -y && \
-    apt-get install -y --no-install-recommends libxerces-c3.2 xsdcxx libboost-program-options && \
+    apt-get install -y --no-install-recommends libxerces-c3.2 xsdcxx libboost-program-options1.83.0 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
