@@ -2,9 +2,9 @@
 FROM fstossesds/cmake:latest@sha256:5916293daeec488b70b15e2099611af1643705b5bd6c0d28d4db443b7099e155
 
 LABEL maintainer="florian.stosse@gmail.com"
-LABEL lastupdate="2025-04-27"
+LABEL lastupdate="2025-05-29"
 LABEL author="Florian Stosse"
-LABEL description="ADMX linter, built with CMake 4.0.1 base image"
+LABEL description="ADMX linter, built with CMake 4.0.2 base image"
 LABEL license="MIT license"
 
 ARG DEBIAN_FRONTEND=noninteractive
