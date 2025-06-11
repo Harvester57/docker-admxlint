@@ -1,5 +1,5 @@
 # Cf. https://hub.docker.com/r/fstossesds/cmake
-FROM fstossesds/cmake:latest@sha256:fce656d1468b9059f4611e7d1a51459d9d7085e4de808194cade1cfe04678515 AS builder
+FROM fstossesds/cmake:latest@sha256:1debb9cf927b6e533b263da73a810ecb3d5b9b1cdd1a942c7bfb75ddfa8d8708 AS builder
 
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -21,7 +21,7 @@ RUN \
     make -j$(getconf _NPROCESSORS_ONLN) && \
     checkinstall --install=no --default
 
-FROM debian:sid-slim@sha256:ce77de9639fc8f48decaa4d94fa5ed1a78e5b7356822f105d18d79d5b2b54772
+FROM debian:sid-slim@sha256:56a871410d2e43c88b8014fd9800864723f07a557bd0e7d66438c02d4cf05199
 
 LABEL maintainer="florian.stosse@gmail.com"
 LABEL lastupdate="2025-05-29"
