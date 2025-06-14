@@ -28,7 +28,7 @@ jobs:
           tags: localbuild/testimage:latest
       -
         name: Scan image
-        uses: anchore/scan-action@v6.2.0
+        uses: anchore/scan-action@v6.3.0
         id: scan
         with:
           add-cpes-if-none: true
