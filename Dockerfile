@@ -1,5 +1,5 @@
 # Cf. https://hub.docker.com/r/fstossesds/cmake
-FROM fstossesds/cmake:latest@sha256:08ddc05180844fa42973e96becd171d267e26af10652f0127918c4a7fbeca608 AS builder
+FROM fstossesds/cmake:latest@sha256:490497d3a10b0f0f4d961ef071f2e572ca0b0a677f25d0dde85520ee23e4d8e2 AS builder
 
 ARG DEBIAN_FRONTEND=noninteractive
 
