@@ -1,0 +1,21 @@
+name: Docker Image CI
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - 
+        name: Checkout
+        uses: actions/checkout@v4.2.2
+      -
+        name: Build
+        id: docker_build
+        uses: docker/build-push-action@v6.18.0
+        with:
+          push: false
+          load: true
+          tags: localbuild/testimage:latest
