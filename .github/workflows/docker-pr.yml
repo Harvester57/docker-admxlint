@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Docker PR CI
 
 on:
   pull_request:
@@ -8,6 +8,11 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
+      - 
+        name: Harden Runner
+        uses: step-security/harden-runner@002fdce3c6a235733a90a27c80493a3241e56863 # v2.12.1
+        with:
+          egress-policy: audit
       - 
         name: Checkout
         uses: actions/checkout@v4.2.2
