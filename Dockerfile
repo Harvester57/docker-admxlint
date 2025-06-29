@@ -1,4 +1,4 @@
-# Cf. https://hub.docker.com/r/fstossesds/cmake
+# Cf. https://github.com/Harvester57/docker-cmake/pkgs/container/docker-cmake
 FROM ghcr.io/harvester57/docker-cmake:latest@sha256:439515423d43811bc33c648fe36972e8d02baf5af04ab026503cb4aba0357e60 AS builder
 
 ARG DEBIAN_FRONTEND=noninteractive
