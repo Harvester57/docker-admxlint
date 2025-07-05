@@ -37,12 +37,12 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
       -
-        name: Scan the image and upload dependency results
+        name: Generate SBOM and upload dependency results
         uses: anchore/sbom-action@cee1b8e05ae5b2593a75e197229729eabaa9f8ec # v0.20.2
         with:
           image: localbuild/testimage:latest
           artifact-name: "${{ github.event.repository.name }}.cyclonedx-sbom.json"
-          dependency-snapshot: false
+          dependency-snapshot: true
           format: cyclonedx-json
       -
         name: Scan SBOM
@@ -56,4 +56,4 @@ jobs:
         name: Upload Anchore scan SARIF report
         uses: github/codeql-action/upload-sarif@181d5eefc20863364f96762470ba6f862bdef56b # v3.29.2
         with:
-          sarif_file: "${{ github.event.repository.name }}.cyclonedx-sbom.json"
+          sarif_file: ${{ steps.scan.outputs.sarif }}
