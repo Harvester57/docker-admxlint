@@ -11,7 +11,21 @@ permissions:
   contents: read
 
 jobs:
+  wait-for-build:
+    name: Wait for build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for build
+        uses: lewagon/wait-on-check-action@0dceb95e7c4cad8cc7422aee3885998f5cab9c79  # v1.4.0
+        with:
+          ref: ${{ github.ref }}
+          check-name: 'build'
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          wait-interval: 15
+          allowed-conclusions: success,skipped
+
   docker:
+    needs: wait-for-build
     permissions:
       contents: write # for actions/checkout to fetch code
       security-events: write # for github/codeql-action/upload-sarif to upload SARIF results
@@ -43,7 +57,7 @@ jobs:
           image: localbuild/testimage:latest
           artifact-name: "${{ github.event.repository.name }}.cyclonedx-sbom.json"
           output-file: "/tmp/${{ github.event.repository.name }}.cyclonedx-sbom.json"
-          dependency-snapshot: true
+          dependency-snapshot: false
           format: cyclonedx-json
           upload-artifact: true
       -
