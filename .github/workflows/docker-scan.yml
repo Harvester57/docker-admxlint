@@ -21,7 +21,9 @@ jobs:
           egress-policy: block
           allowed-endpoints: >
             api.github.com:443
+            github.com:443
             index.rubygems.org:443
+            rubygems.org:443
 
       - name: Wait for build
         uses: lewagon/wait-on-check-action@0dceb95e7c4cad8cc7422aee3885998f5cab9c79  # v1.4.0
