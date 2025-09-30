@@ -21,7 +21,7 @@ RUN \
     make -j$(getconf _NPROCESSORS_ONLN) && \
     checkinstall --install=no --default
 
-FROM debian:sid-slim@sha256:7e8e5af19ae9e22c326f52aa30a65dd635c0e45430e322fc2aa64455c9ad624c
+FROM debian:sid-slim@sha256:b26ecca683851dd1a44fbd6be3cdea8e5c874613e87fc4bd8b9f681650a6673d
 
 LABEL maintainer="florian.stosse@gmail.com"
 LABEL lastupdate="2025-06-29"
