@@ -8,6 +8,7 @@ name: Docker image scheduled build - No cache
 on:
   schedule:
     - cron: '23 1 * * *'
+  workflow_dispatch:
 
 env:
   # Use docker.io for Docker Hub if empty
