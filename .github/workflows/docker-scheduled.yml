@@ -42,9 +42,11 @@ jobs:
             auth.docker.io:443
             deb.debian.org:80
             fulcio.sigstore.dev:443
+            get.anchore.io:443
             ghcr.io:443
             github.com:443
             objects.githubusercontent.com:443
+            grype.anchore.io:443
             pkg-containers.githubusercontent.com:443
             production.cloudflare.docker.com:443
             raw.githubusercontent.com:443
