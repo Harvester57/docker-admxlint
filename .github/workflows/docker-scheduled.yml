@@ -99,7 +99,6 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           no-cache: true
-          load: true
           platforms: linux/amd64
 
       # Sign the resulting Docker image digest except on PRs.
