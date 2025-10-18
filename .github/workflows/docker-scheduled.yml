@@ -21,8 +21,8 @@ permissions:
   contents: read
 
 jobs:
-  build:
-
+  build-nocache:
+    name: Build and publish Docker image without cache
     runs-on: ubuntu-latest
     permissions:
       contents: write # for actions/checkout to fetch code
