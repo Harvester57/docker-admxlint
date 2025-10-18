@@ -19,7 +19,7 @@ RUN \
     cd build && \
     cmake .. && \
     make -j$(getconf _NPROCESSORS_ONLN) && \
-    checkinstall --install=no --default
+    checkinstall --install=no --default --nodoc
 
 FROM debian:sid-slim@sha256:3e62bb802f97815491469a127cfef29a8266977b8fde5f0c09541d761b36a6a2
 
