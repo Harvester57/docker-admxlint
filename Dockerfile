@@ -5,6 +5,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 RUN \
     sudo --preserve-env apt-get update && \
+    sudo --preserve-env apt-get full-upgrade -y && \
     sudo --preserve-env apt-get install -y --no-install-recommends libxerces-c-dev xsdcxx git libboost-program-options-dev checkinstall
 
 USER appuser
@@ -33,7 +34,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 RUN \
     apt-get update && \
-    apt-get dist-upgrade -y && \
+    apt-get full-upgrade -y && \
     apt-get install -y --no-install-recommends libxerces-c3.2 xsdcxx libboost-program-options1.83.0 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
