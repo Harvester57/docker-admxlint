@@ -20,7 +20,7 @@ RUN \
     cd build && \
     cmake .. && \
     make -j$(getconf _NPROCESSORS_ONLN) && \
-    checkinstall --install=no --default --nodoc
+    checkinstall --install=no --default --nodoc --pkgversion="1.0"
 
 FROM debian:sid-slim@sha256:f0920267adafa79cc5718eb036e76bf6214c63607fff7a8deeae3505e2635b80
 
@@ -44,4 +44,5 @@ COPY --from=builder /home/appuser/admx-lint/build/*.deb /
 RUN \
     dpkg -i /*.deb && \
     ldconfig && \
+
     rm /*.deb
