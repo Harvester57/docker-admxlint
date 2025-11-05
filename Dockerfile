@@ -1,5 +1,5 @@
 # Cf. https://github.com/Harvester57/docker-cmake/pkgs/container/docker-cmake
-FROM ghcr.io/harvester57/docker-cmake:latest@sha256:8e7aa6ba8e26b10bb9fa268b7c3b29d6b7b2c0d38b23bcf6f4b352b2d4ffc5c4 AS builder
+FROM ghcr.io/harvester57/docker-cmake:latest@sha256:98f673a567e05ee9cd5d977cfe868ff426943e6136a3124007a1f1f238156ec9 AS builder
 
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -22,7 +22,7 @@ RUN \
     make -j$(getconf _NPROCESSORS_ONLN) && \
     checkinstall --install=no --default --nodoc --pkgversion="1.0"
 
-FROM debian:sid-slim@sha256:f0920267adafa79cc5718eb036e76bf6214c63607fff7a8deeae3505e2635b80
+FROM debian:sid-slim@sha256:c37d0f11153ea67d18364ab8ca7ee544615e031651502853314c9d43be3614a9
 
 LABEL maintainer="florian.stosse@gmail.com"
 LABEL lastupdate="2025-06-29"
