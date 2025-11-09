@@ -20,7 +20,7 @@ RUN \
     cd build && \
     cmake .. && \
     make -j$(getconf _NPROCESSORS_ONLN) && \
-    checkinstall --install=no --default --nodoc --pkgversion="1.0"
+    checkinstall -D -y --fstrans=yes --install=no --default --nodoc --pkgversion="1.0" --reset-uids=yes --pkgname=admxlint --pkglicense=GPL
 
 FROM debian:sid-slim@sha256:c37d0f11153ea67d18364ab8ca7ee544615e031651502853314c9d43be3614a9
 
@@ -46,5 +46,6 @@ RUN \
     ldconfig && \
 
     rm /*.deb
+
 
 
