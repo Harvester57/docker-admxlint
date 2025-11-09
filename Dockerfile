@@ -6,7 +6,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN \
     sudo --preserve-env apt-get update && \
     sudo --preserve-env apt-get full-upgrade -y && \
-    sudo --preserve-env apt-get install -y --no-install-recommends libxerces-c-dev xsdcxx git libboost-program-options-dev checkinstall rev
+    sudo --preserve-env apt-get install -y --no-install-recommends libxerces-c-dev xsdcxx git libboost-program-options-dev checkinstall
 
 USER appuser
 WORKDIR /home/appuser
@@ -46,4 +46,5 @@ RUN \
     ldconfig && \
 
     rm /*.deb
+
 
