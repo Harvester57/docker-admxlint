@@ -44,8 +44,4 @@ COPY --from=builder /home/appuser/admx-lint/build/*.deb /
 RUN \
     dpkg -i /*.deb && \
     ldconfig && \
-
     rm /*.deb
-
-
-
