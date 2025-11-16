@@ -1,5 +1,5 @@
 # Cf. https://github.com/Harvester57/docker-cmake/pkgs/container/docker-cmake
-FROM ghcr.io/harvester57/docker-cmake:latest@sha256:3c92d8329f66f65607d5316792188c4b4dec5a6711519843b3bcbffeb4f168a7 AS builder
+FROM ghcr.io/harvester57/docker-cmake:latest@sha256:ab082df559ca95f71b102679ff51551a1b2d432362810ffbf3c256dbacda0e2b AS builder
 
 ARG DEBIAN_FRONTEND=noninteractive
 
