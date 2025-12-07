@@ -23,12 +23,12 @@ RUN \
     make -j$(getconf _NPROCESSORS_ONLN) && \
     checkinstall -D -y --fstrans=yes --install=no --default --nodoc --pkgversion="1.0" --reset-uids=yes --pkgname=admxlint --pkglicense=GPL
 
-FROM debian:sid-slim@sha256:7a2a8c67e744e32162c8d918c6ca59dfb5809f3984857bd451693eab72fc1050
+FROM debian:unstable-slim@sha256:5ee6733c2db5bfe27184aaf83db7611fca0652706fd93704422b1a890ae2db73
 
 LABEL maintainer="florian.stosse@gmail.com"
-LABEL lastupdate="2025-06-29"
+LABEL lastupdate="2025-12-07"
 LABEL author="Florian Stosse"
-LABEL description="ADMX linter, built with CMake 4.0.2 base image"
+LABEL description="ADMX linter, built with CMake 4.2.0 base image"
 LABEL license="MIT license"
 
 ARG DEBIAN_FRONTEND=noninteractive
