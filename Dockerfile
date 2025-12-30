@@ -1,6 +1,6 @@
 # Cf. https://github.com/Harvester57/docker-cmake/pkgs/container/docker-cmake
 ARG BUILDKIT_SBOM_SCAN_STAGE=true
-FROM ghcr.io/harvester57/docker-cmake:latest@sha256:fa7eefc1cdfd5fe12ffed2f674e14b7867b42cdbcec59ea4fe5ac893207409ff AS builder
+FROM ghcr.io/harvester57/docker-cmake:latest@sha256:3fc4f74972995d536824efd8dcbaa8e4829931a1e63e50e7616cd9cc3867af21 AS builder
 
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -23,7 +23,7 @@ RUN \
     make -j$(getconf _NPROCESSORS_ONLN) && \
     checkinstall -D -y --fstrans=yes --install=no --default --nodoc --pkgversion="1.0" --reset-uids=yes --pkgname=admxlint --pkglicense=GPL
 
-FROM debian:unstable-slim@sha256:5a5db7aad659b600d164ab43195999b9aee3b01c1bf44bdc0215bc843bc03e9a
+FROM debian:unstable-slim@sha256:9511c385ab1d86dd329c7e94fba865a0cf5725ac9228043e9e2259eeab10c2aa
 
 LABEL maintainer="florian.stosse@gmail.com"
 LABEL lastupdate="2025-12-07"
