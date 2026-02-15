@@ -1,6 +1,6 @@
 # Cf. https://github.com/Harvester57/docker-cmake/pkgs/container/docker-cmake
 ARG BUILDKIT_SBOM_SCAN_STAGE=true
-FROM ghcr.io/harvester57/docker-cmake:latest@sha256:dd991d4cbb0848a6115f78db2ca6cbe167409ee6046acf9d595c627e649ecac7 AS builder
+FROM ghcr.io/harvester57/docker-cmake:latest@sha256:0f6ac35bf49eaaa8f36e671775cf935575106cdaa22acc63012235e8851d1b4a AS builder
 
 ARG DEBIAN_FRONTEND=noninteractive
 
