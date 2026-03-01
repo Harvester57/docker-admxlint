@@ -36,7 +36,7 @@ LABEL license="MIT license"
 ARG DEBIAN_FRONTEND=noninteractive
 
 USER root
-COPY --from=builder /home/appuser/admx-lint/build/*.deb /
+COPY --from=builder /home/nonroot/admx-lint/build/*.deb /
 
 RUN \
     apt-get update && \
@@ -48,6 +48,7 @@ RUN \
     rm /*.deb
 
 USER nonroot
+
 
 
 
