@@ -27,10 +27,8 @@ RUN git clone --depth 1 https://github.com/Harvester57/admx-lint.git
 WORKDIR /home/nonroot/admx-lint
 
 RUN \
-    mkdir build && \
-    cd build && \
-    cmake .. && \
-    make -j$(getconf _NPROCESSORS_ONLN)
+    cmake -S . -B build && \
+    cmake --build build
 
 FROM dhi.io/debian-base:trixie-debian13-dev@sha256:135e45aa54d93f6d065af66ad15e1b27e1263fb830f60ed792a9cc398af2b654
 
