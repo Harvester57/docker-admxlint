@@ -24,7 +24,7 @@ RUN \
     make -j$(getconf _NPROCESSORS_ONLN) && \
     checkinstall -D -y --fstrans=yes --install=no --default --nodoc --pkgversion="1.0" --reset-uids=yes --pkgname=admxlint --pkglicense=GPL
 
-FROM dhi.io/debian-base:trixie@sha256:0ad2d35710a1ac7607a15f45a59aeae2f9f048b13fb07240e732c99953473c77
+FROM dhi.io/debian-base:trixie-debian13-dev@sha256:135e45aa54d93f6d065af66ad15e1b27e1263fb830f60ed792a9cc398af2b654
 
 LABEL maintainer="florian.stosse@gmail.com"
 LABEL lastupdate="2025-12-07"
