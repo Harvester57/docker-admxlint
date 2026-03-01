@@ -7,7 +7,14 @@ ARG DEBIAN_FRONTEND=noninteractive
 USER root
 RUN \
     apt-get update && \
-    apt-get install -y --no-install-recommends libxerces-c-dev xsdcxx git libboost-program-options-dev checkinstall libcurl4-gnutls-dev && \
+    apt-get install -y --no-install-recommends \
+        libxerces-c-dev \
+        xsdcxx \
+        libboost-program-options-dev \
+        libcurl4-gnutls-dev \
+        libunistring-dev \
+        libgpg-error-dev \
+        libicu-dev && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
@@ -22,8 +29,7 @@ RUN \
     mkdir build && \
     cd build && \
     cmake .. && \
-    make -j$(getconf _NPROCESSORS_ONLN) && \
-    checkinstall -D -y --fstrans=yes --install=no --default --nodoc --pkgversion="1.0" --reset-uids=yes --pkgname=admxlint --pkglicense=GPL
+    make -j$(getconf _NPROCESSORS_ONLN)
 
 FROM dhi.io/debian-base:trixie-debian13-dev@sha256:135e45aa54d93f6d065af66ad15e1b27e1263fb830f60ed792a9cc398af2b654
 
@@ -33,15 +39,9 @@ LABEL author="Florian Stosse"
 LABEL description="ADMX linter, built with CMake 4.2.3 base image"
 LABEL license="MIT license"
 
-ARG DEBIAN_FRONTEND=noninteractive
-
 USER root
-COPY --from=builder /home/nonroot/admx-lint/build/*.deb /
-
-RUN \
-    dpkg -i /*.deb && \
-    ldconfig && \
-    rm /*.deb && \
-    admx-lint --help
+COPY --from=builder /home/nonroot/admx-lint/build/src/admx-lint /usr/bin
 
 USER nonroot
+
+RUN admx-lint --help
