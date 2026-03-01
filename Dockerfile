@@ -9,12 +9,12 @@ RUN \
     apt-get update && \
     apt-get install -y --no-install-recommends \
         git \
+        build-essential \
+        pkg-config \
         libxerces-c-dev \
         xsdcxx \
         libboost-program-options-dev \
         libcurl4-gnutls-dev \
-        libunistring-dev \
-        libgpg-error-dev \
         libicu-dev && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
