@@ -6,9 +6,8 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 USER root
 RUN \
-    sudo --preserve-env apt-get update && \
-    sudo --preserve-env apt-get full-upgrade -y && \
-    sudo --preserve-env apt-get install -y --no-install-recommends libxerces-c-dev xsdcxx git libboost-program-options-dev checkinstall
+    apt-get update && \
+    apt-get install -y --no-install-recommends libxerces-c-dev xsdcxx git libboost-program-options-dev checkinstall
 
 USER nonroot
 WORKDIR /home/nonroot
@@ -47,4 +46,5 @@ RUN \
     rm /*.deb
 
 USER nonroot
+
 
