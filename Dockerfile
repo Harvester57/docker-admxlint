@@ -4,17 +4,18 @@ FROM ghcr.io/harvester57/docker-cmake:latest@sha256:183e67c116924407b7eb01eb171f
 
 ARG DEBIAN_FRONTEND=noninteractive
 
+USER root
 RUN \
     sudo --preserve-env apt-get update && \
     sudo --preserve-env apt-get full-upgrade -y && \
     sudo --preserve-env apt-get install -y --no-install-recommends libxerces-c-dev xsdcxx git libboost-program-options-dev checkinstall
 
-USER appuser
-WORKDIR /home/appuser
+USER nonroot
+WORKDIR /home/nonroot
 
 RUN git clone --depth 1 https://github.com/Harvester57/admx-lint.git
 
-WORKDIR /home/appuser/admx-lint
+WORKDIR /home/nonroot/admx-lint
 
 RUN \
     mkdir build && \
@@ -23,16 +24,17 @@ RUN \
     make -j$(getconf _NPROCESSORS_ONLN) && \
     checkinstall -D -y --fstrans=yes --install=no --default --nodoc --pkgversion="1.0" --reset-uids=yes --pkgname=admxlint --pkglicense=GPL
 
-FROM debian:unstable-slim@sha256:0196e18f4dcd21bedad3f815c4951a98872e3e2dbe850e8d624c9b94085bf8fe
+FROM dhi.io/debian-base:trixie@sha256:0ad2d35710a1ac7607a15f45a59aeae2f9f048b13fb07240e732c99953473c77
 
 LABEL maintainer="florian.stosse@gmail.com"
 LABEL lastupdate="2025-12-07"
 LABEL author="Florian Stosse"
-LABEL description="ADMX linter, built with CMake 4.2.0 base image"
+LABEL description="ADMX linter, built with CMake 4.2.3 base image"
 LABEL license="MIT license"
 
 ARG DEBIAN_FRONTEND=noninteractive
 
+USER root
 RUN \
     apt-get update && \
     apt-get full-upgrade -y && \
@@ -46,3 +48,5 @@ RUN \
     dpkg -i /*.deb && \
     ldconfig && \
     rm /*.deb
+
+USER nonroot
