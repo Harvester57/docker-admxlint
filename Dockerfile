@@ -1,6 +1,6 @@
 # Cf. https://github.com/Harvester57/docker-cmake/pkgs/container/docker-cmake
 ARG BUILDKIT_SBOM_SCAN_STAGE=true
-FROM ghcr.io/harvester57/docker-cmake:latest@sha256:183e67c116924407b7eb01eb171f934e387e872cb2811693d6ab42985eb02649 AS builder
+FROM ghcr.io/harvester57/docker-cmake:latest@sha256:36e209ef70413518569aabae6861a49b5513a11401a1b2b2d56197180dee411f AS builder
 
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -27,7 +27,7 @@ RUN \
 FROM dhi.io/debian-base:trixie@sha256:0ad2d35710a1ac7607a15f45a59aeae2f9f048b13fb07240e732c99953473c77
 
 LABEL maintainer="florian.stosse@gmail.com"
-LABEL lastupdate="2025-12-07"
+LABEL lastupdate="2026-03-08"
 LABEL author="Florian Stosse"
 LABEL description="ADMX linter, built with CMake 4.2.3 base image"
 LABEL license="MIT license"
