@@ -34,7 +34,7 @@ LABEL license="MIT license"
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-COPY --from=builder /home/appuser/admx-lint/build/*.deb /
+COPY --from=builder /home/nonroot/admx-lint/build/*.deb /
 
 USER root
 RUN \
