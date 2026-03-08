@@ -36,7 +36,6 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 COPY --from=builder /home/nonroot/admx-lint/build/*.deb /
 
-USER root
 RUN \
     apt-get update && \
     apt-get full-upgrade -y && \
