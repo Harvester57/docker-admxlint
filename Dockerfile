@@ -6,9 +6,9 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 USER root
 RUN \
-    sudo --preserve-env apt-get update && \
-    sudo --preserve-env apt-get full-upgrade -y && \
-    sudo --preserve-env apt-get install -y --no-install-recommends libxerces-c-dev xsdcxx git libboost-program-options-dev checkinstall
+    apt-get update && \
+    apt-get full-upgrade -y && \
+    apt-get install -y --no-install-recommends libxerces-c-dev xsdcxx git libboost-program-options-dev checkinstall
 
 USER nonroot
 WORKDIR /home/nonroot
@@ -34,17 +34,15 @@ LABEL license="MIT license"
 
 ARG DEBIAN_FRONTEND=noninteractive
 
+COPY --from=builder /home/appuser/admx-lint/build/*.deb /
+
 USER root
 RUN \
     apt-get update && \
     apt-get full-upgrade -y && \
     apt-get install -y --no-install-recommends libxerces-c3.2 xsdcxx libboost-program-options1.83.0 && \
     apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
-COPY --from=builder /home/appuser/admx-lint/build/*.deb /
-
-RUN \
+    rm -rf /var/lib/apt/lists/* && \
     dpkg -i /*.deb && \
     ldconfig && \
     rm /*.deb
