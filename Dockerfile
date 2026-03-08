@@ -44,6 +44,7 @@ RUN \
     rm -rf /var/lib/apt/lists/* && \
     dpkg -i /*.deb && \
     ldconfig && \
-    rm /*.deb
+    rm /*.deb && \
+    admx-lint --help
 
 USER nonroot
