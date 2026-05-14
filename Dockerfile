@@ -28,7 +28,7 @@ RUN \
 FROM dhi.io/debian-base:trixie-dev@sha256:135e45aa54d93f6d065af66ad15e1b27e1263fb830f60ed792a9cc398af2b654
 
 LABEL maintainer="florian.stosse@gmail.com"
-LABEL lastupdate="2026-005-14"
+LABEL lastupdate="2026-05-14"
 LABEL author="Florian Stosse"
 LABEL description="ADMX linter, built with CMake 4.2.3 base image"
 LABEL license="MIT license"
