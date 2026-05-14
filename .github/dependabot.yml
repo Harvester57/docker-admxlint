@@ -9,10 +9,10 @@ registries:
     password: ${{ secrets.DOCKERHUB_TOKEN }}
 
 updates:
-- package-ecosystem: "docker"
-  directory: "/"
-  registries:
-      - "docker-hardened"
+  - package-ecosystem: "docker"
+    directory: "/"
+    registries:
+        - "docker-hardened"
     commit-message:
       prefix: "docker"
     labels: [ 'docker' ]
