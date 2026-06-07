@@ -28,8 +28,8 @@ RUN \
 FROM dhi.io/debian-base:trixie-dev@sha256:41cc0e62bbb3b8cbb29deb40c987e55577cf98c4d00ede32b40159a1a4d87565
 
 LABEL org.opencontainers.image.authors="Florian Stosse <florian.stosse@gmail.com>"
-LABEL org.opencontainers.image.created="2026-05-17"
-LABEL org.opencontainers.image.description="ADMX linter, built with CMake 4.3.2 base image"
+LABEL org.opencontainers.image.created="2026-06-07"
+LABEL org.opencontainers.image.description="ADMX linter, built with CMake 4.3.3 base image"
 LABEL org.opencontainers.image.licenses="MIT license"
 
 ENV DEBIAN_FRONTEND=noninteractive
